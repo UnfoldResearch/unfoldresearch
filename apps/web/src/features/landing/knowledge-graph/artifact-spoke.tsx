@@ -1,6 +1,6 @@
 import { kindStyles } from "./kind-styles";
-import type { ArtifactKind } from "./timeline";
-import { SPOKE_LENGTH } from "./timeline";
+import type { ArtifactKind } from "./simulation";
+import { SPOKE_LENGTH } from "./simulation";
 
 interface ArtifactSpokeProps {
   kind: ArtifactKind;
@@ -62,11 +62,14 @@ export function ArtifactNode(props: ArtifactSpokeProps) {
   );
 }
 
-/** Puts the caption past the artifact, continuing the spoke's direction. */
+/**
+ * Puts the caption past the artifact, continuing the spoke's direction:
+ * beside it for sideways and diagonal spokes, above or below for vertical ones.
+ */
 function labelPlacement(angle: number, x: number, y: number) {
   const dx = Math.cos((angle * Math.PI) / 180);
-  if (dx > 0.5) return { x: x + 9, y: y + 3, anchor: "start" as const };
-  if (dx < -0.5) return { x: x - 9, y: y + 3, anchor: "end" as const };
+  if (dx > 0.4) return { x: x + 9, y: y + 3, anchor: "start" as const };
+  if (dx < -0.4) return { x: x - 9, y: y + 3, anchor: "end" as const };
   const below = Math.sin((angle * Math.PI) / 180) >= 0;
   return { x, y: below ? y + 17 : y - 10, anchor: "middle" as const };
 }

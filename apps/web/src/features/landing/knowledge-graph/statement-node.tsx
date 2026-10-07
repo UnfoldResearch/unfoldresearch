@@ -1,8 +1,8 @@
 import { CheckMark } from "../glyphs";
 import { ArtifactNode, SpokeLine } from "./artifact-spoke";
 import { kindStyles } from "./kind-styles";
-import type { NodeState } from "./timeline";
-import { ease } from "./timeline";
+import type { NodeState } from "./simulation";
+import { ease } from "./simulation";
 
 /**
  * A statement in the graph: an open question that becomes a hypothesis while
