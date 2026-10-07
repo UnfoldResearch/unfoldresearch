@@ -23,6 +23,7 @@ import { ComputePool } from "../features/landing/compute-pool";
 import { KnowledgeGraph } from "../features/landing/knowledge-graph/knowledge-graph";
 import { ResearchLoop } from "../features/landing/research-loop";
 import { Reveal } from "../features/landing/reveal";
+import { useInPageLinks } from "../features/landing/use-in-page-links";
 
 const sections = [
   { href: "#how-it-works", label: "How it works" },
@@ -33,6 +34,8 @@ const sections = [
 ];
 
 export function LandingPage() {
+  useInPageLinks();
+
   return (
     <div className="flex min-h-dvh flex-col">
       <Header />
@@ -59,12 +62,10 @@ function Header() {
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:px-6 md:gap-6">
         <Link
           to="/"
-          // Already on this page: glide back to the top (smooth via the
-          // html scroll-behavior) and drop any #section from the URL.
+          // Already on this page: glide back to the top instead.
           onClick={(event) => {
             event.preventDefault();
             window.scrollTo({ top: 0 });
-            history.replaceState(null, "", location.pathname);
           }}
           className="flex shrink-0 items-center gap-2"
         >
