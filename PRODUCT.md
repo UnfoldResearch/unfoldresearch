@@ -42,3 +42,11 @@ over an API key. Only use it if you actually build spend limits and revocation. 
 bring-your-own infrastructure and AT Protocol, and on-prem buyers will look for it. 7. Reproducible by anyone. "Anything verified can be re-run by anyone with access." This is
 stronger than verification alone and appeals to academics worried about the replication
 crisis.
+
+democratized research frontiers
+
+universal infrastructure for agentic research.
+
+- applicable to different domains (bring your own ontoloty, processes and strategies)
+- for both humans and AI.
+- public and crowd-sourced by default (have your PC contribute to frontier academic research and become one of the contributors)

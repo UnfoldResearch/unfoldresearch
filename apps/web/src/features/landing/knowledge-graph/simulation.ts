@@ -47,8 +47,12 @@ interface SimWorker {
   kind: "human" | "agent";
   x: number;
   y: number;
-  /** Pixels per second. */
-  speed: number;
+  /** Seconds to reach the next node, however far it is. */
+  travel: number;
+  /** Where and when the current trip began. */
+  departX: number;
+  departY: number;
+  departAt: number;
   /** Work per second. */
   rate: number;
   target?: number;
@@ -98,19 +102,22 @@ export function createSimulation(): Simulation {
   root.work = root.needed;
   spawnQuestions(sim, root, 3);
 
-  // Kind, speed, work rate, sociability: four distinct characters.
+  // Kind, travel time (s), work rate, sociability.
   const crew: [SimWorker["kind"], number, number, number][] = [
-    ["agent", 150, 1, 0.85],
-    ["agent", 135, 1.1, 0.2],
-    ["human", 120, 0.8, 0.55],
-    ["human", 110, 0.75, 0.35],
+    ["agent", 0.9, 1, 0.85],
+    ["agent", 1, 1.1, 0.2],
+    ["human", 1.2, 0.8, 0.55],
+    ["human", 1.3, 0.75, 0.35],
   ];
-  sim.workers = crew.map(([kind, speed, rate, sociability], i) => ({
+  sim.workers = crew.map(([kind, travel, rate, sociability], i) => ({
     id: i,
     kind,
     x: rand(80, 400),
     y: rand(-20, 40),
-    speed,
+    travel,
+    departX: 0,
+    departY: 0,
+    departAt: 0,
     rate,
     working: false,
     arrivedAt: 0,
@@ -195,7 +202,13 @@ function stepWorker(sim: Simulation, worker: SimWorker, dt: number) {
   if (!node && sim.time >= worker.idleUntil) {
     node = pickQuestion(sim, worker);
     worker.target = node?.id;
-    if (!node) worker.idleUntil = sim.time + 0.5;
+    if (node) {
+      worker.departX = worker.x;
+      worker.departY = worker.y;
+      worker.departAt = sim.time;
+    } else {
+      worker.idleUntil = sim.time + 0.5;
+    }
   }
   if (!node) return;
 
@@ -206,19 +219,19 @@ function stepWorker(sim: Simulation, worker: SimWorker, dt: number) {
   const index = crew.indexOf(worker);
   const tx = node.x + (index - (crew.length - 1) / 2) * WORKER_GAP;
   const ty = node.y - WORKER_RISE;
-  const dx = tx - worker.x;
-  const dy = ty - worker.y;
-  const distance = Math.hypot(dx, dy);
-  const reach = worker.speed * dt;
-  if (distance <= reach || distance < 1e-6) {
-    worker.x = tx;
-    worker.y = ty;
+  if (worker.working) {
+    // Already there: glide to a new slot as others come and go.
+    const glide = Math.min(1, dt * 8);
+    worker.x += (tx - worker.x) * glide;
+    worker.y += (ty - worker.y) * glide;
   } else {
-    worker.x += (dx / distance) * reach;
-    worker.y += (dy / distance) * reach;
+    // A trip takes the same time whatever the distance, easing in and out.
+    const trip = ease(clamp((sim.time - worker.departAt) / worker.travel));
+    worker.x = worker.departX + (tx - worker.departX) * trip;
+    worker.y = worker.departY + (ty - worker.departY) * trip;
   }
 
-  if (!worker.working && distance < 6) {
+  if (!worker.working && sim.time - worker.departAt >= worker.travel) {
     worker.working = true;
     worker.arrivedAt = sim.time;
     worker.stintUntil = sim.time + rand(3, 9);
