@@ -1,0 +1,37 @@
+/*
+ * Mode-independent semantic tokens (shape, size, elevation, type, motion, focus).
+ * Colour roles live in themes/*.css. Use these from CSS modules as var(--ui-…);
+ * tailwind.css exposes the same values as utilities.
+ */
+:root {
+  /* Shape */
+  --ui-radius-control: var(--knob-radius);
+  --ui-radius-card: calc(var(--knob-radius) * 1.5);
+  --ui-radius-popup: calc(var(--knob-radius) * 1.25);
+  --ui-radius-inner: calc(var(--knob-radius) * 0.6);
+  --ui-radius-pill: 9999px;
+
+  /* Control sizing */
+  --ui-size-control-sm: calc(2rem * var(--knob-density));
+  --ui-size-control-md: calc(2.5rem * var(--knob-density));
+  --ui-size-control-lg: calc(3rem * var(--knob-density));
+
+  /* Elevation (colour comes from the active theme) */
+  --ui-shadow-card: 0 1px 2px var(--ui-shadow-color);
+  --ui-shadow-popup:
+    0 8px 24px -4px var(--ui-shadow-color), 0 2px 6px var(--ui-shadow-color);
+
+  /* Type */
+  --ui-font-sans: var(--knob-font-sans);
+  --ui-font-display: var(--knob-font-display);
+  --ui-font-mono: var(--knob-font-mono);
+
+  /* Motion */
+  --ui-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ui-duration-fast: 150ms;
+  --ui-duration-normal: 200ms;
+
+  /* Focus */
+  --ui-focus-width: 2px;
+  --ui-focus-offset: 2px;
+}

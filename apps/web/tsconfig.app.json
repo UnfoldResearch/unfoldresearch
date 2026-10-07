@@ -1,0 +1,4 @@
+{
+  "extends": "@unfoldresearch/tsconfig/vite-app.json",
+  "include": ["src"]
+}

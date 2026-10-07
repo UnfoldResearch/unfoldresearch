@@ -1,0 +1,4 @@
+{
+  "extends": "@unfoldresearch/tsconfig/react-library.json",
+  "include": ["src"]
+}

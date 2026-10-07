@@ -1,0 +1,16 @@
+@layer components {
+  .positioner {
+    z-index: 50;
+  }
+
+  .popup {
+    max-width: 16rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: calc(var(--ui-radius-control) * 0.75);
+    background: var(--ui-color-neutral);
+    color: var(--ui-color-neutral-fg);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    box-shadow: var(--ui-shadow-popup);
+  }
+}

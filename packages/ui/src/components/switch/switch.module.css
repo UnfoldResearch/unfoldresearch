@@ -1,0 +1,32 @@
+@layer components {
+  .root {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    width: 2.5rem;
+    height: 1.5rem;
+    padding: 0.125rem;
+    border-radius: var(--ui-radius-pill);
+    background: var(--ui-color-border-strong);
+    cursor: pointer;
+    transition: background-color var(--ui-duration-fast) var(--ui-ease-standard);
+  }
+
+  .root[data-checked] {
+    background: var(--ui-color-accent);
+  }
+
+  .thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: var(--ui-radius-pill);
+    background: var(--ui-color-surface);
+    box-shadow: var(--ui-shadow-card);
+    transition: translate var(--ui-duration-fast) var(--ui-ease-standard);
+  }
+
+  .thumb[data-checked] {
+    translate: 1rem 0;
+  }
+}

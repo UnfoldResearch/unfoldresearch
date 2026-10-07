@@ -1,0 +1,30 @@
+/*
+ * Design knobs — the fastest way to iterate on the overall look.
+ * Everything else (palette → semantic roles → components) derives from these.
+ */
+:root {
+  /* Colour: OKLCH hue (0–360) and peak chroma (0–0.37) per ramp */
+  --knob-neutral-hue: 260;
+  --knob-neutral-chroma: 0.012;
+  --knob-accent-hue: 265;
+  --knob-accent-chroma: 0.2;
+  --knob-danger-hue: 25;
+  --knob-danger-chroma: 0.2;
+  --knob-success-hue: 150;
+  --knob-success-chroma: 0.16;
+  --knob-warning-hue: 75;
+  --knob-warning-chroma: 0.16;
+
+  /* Shape: base corner radius; components scale from this */
+  --knob-radius: 0.5rem;
+
+  /* Density: multiplies control heights (0.875 compact … 1.125 roomy) */
+  --knob-density: 1;
+
+  /* Type */
+  --knob-font-sans:
+    "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --knob-font-display: var(--knob-font-sans);
+  --knob-font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+}

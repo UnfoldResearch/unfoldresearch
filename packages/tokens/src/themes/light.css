@@ -1,0 +1,63 @@
+/* Semantic roles — light mode (the default). */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --ui-color-canvas: var(--palette-neutral-50);
+  --ui-color-surface: var(--palette-white);
+  --ui-color-surface-sunken: var(--palette-neutral-100);
+  --ui-color-surface-raised: var(--palette-white);
+  --ui-color-backdrop: oklch(0.2 0.01 var(--knob-neutral-hue) / 0.4);
+
+  /* Text */
+  --ui-color-fg: var(--palette-neutral-950);
+  --ui-color-fg-muted: var(--palette-neutral-700);
+  --ui-color-fg-subtle: var(--palette-neutral-500);
+  --ui-color-fg-inverted: var(--palette-white);
+
+  /* Lines */
+  --ui-color-border: var(--palette-neutral-200);
+  --ui-color-border-strong: var(--palette-neutral-300);
+  --ui-color-ring: var(--palette-accent-500);
+
+  /* Neutral interactive (secondary buttons, hovers) */
+  --ui-color-neutral: var(--palette-neutral-900);
+  --ui-color-neutral-hover: var(--palette-neutral-800);
+  --ui-color-neutral-fg: var(--palette-white);
+  --ui-color-neutral-subtle: var(--palette-neutral-100);
+  --ui-color-neutral-subtle-hover: var(--palette-neutral-200);
+  --ui-color-neutral-subtle-fg: var(--palette-neutral-900);
+
+  /* Intents: solid / hover / text-on-solid / subtle bg / subtle hover / text-on-subtle */
+  --ui-color-accent: var(--palette-accent-600);
+  --ui-color-accent-hover: var(--palette-accent-700);
+  --ui-color-accent-fg: var(--palette-white);
+  --ui-color-accent-subtle: var(--palette-accent-50);
+  --ui-color-accent-subtle-hover: var(--palette-accent-100);
+  --ui-color-accent-subtle-fg: var(--palette-accent-700);
+
+  --ui-color-danger: var(--palette-danger-600);
+  --ui-color-danger-hover: var(--palette-danger-700);
+  --ui-color-danger-fg: var(--palette-white);
+  --ui-color-danger-subtle: var(--palette-danger-50);
+  --ui-color-danger-subtle-hover: var(--palette-danger-100);
+  --ui-color-danger-subtle-fg: var(--palette-danger-700);
+
+  --ui-color-success: var(--palette-success-600);
+  --ui-color-success-hover: var(--palette-success-700);
+  --ui-color-success-fg: var(--palette-white);
+  --ui-color-success-subtle: var(--palette-success-50);
+  --ui-color-success-subtle-hover: var(--palette-success-100);
+  --ui-color-success-subtle-fg: var(--palette-success-800);
+
+  --ui-color-warning: var(--palette-warning-500);
+  --ui-color-warning-hover: var(--palette-warning-600);
+  --ui-color-warning-fg: var(--palette-warning-950);
+  --ui-color-warning-subtle: var(--palette-warning-50);
+  --ui-color-warning-subtle-hover: var(--palette-warning-100);
+  --ui-color-warning-subtle-fg: var(--palette-warning-800);
+
+  /* Elevation */
+  --ui-shadow-color: oklch(0.2 0.02 var(--knob-neutral-hue) / 0.08);
+}

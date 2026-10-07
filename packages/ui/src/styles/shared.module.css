@@ -1,0 +1,34 @@
+/*
+ * Behaviour shared across components, pulled in with `composes`.
+ * Tweak here to restyle focus or popup motion everywhere at once.
+ */
+@layer components {
+  .focusRing {
+    outline: none;
+  }
+
+  .focusRing:focus-visible {
+    outline: var(--ui-focus-width) solid var(--ui-color-ring);
+    /* Components can tighten the ring by setting --_focus-offset. */
+    outline-offset: var(--_focus-offset, var(--ui-focus-offset));
+  }
+
+  /* Enter/exit animation for floating popups (menu, tooltip, popover). */
+  .popup {
+    transform-origin: var(--transform-origin);
+    transition-property: opacity, scale;
+    transition-duration: var(--ui-duration-fast);
+    transition-timing-function: var(--ui-ease-standard);
+  }
+
+  .popup[data-starting-style],
+  .popup[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+
+  .disabled[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "bracketSpacing": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "sortImports": {
+    "newlinesBetween": true,
+    "customGroups": [
+      {
+        "groupName": "unfoldresearch",
+        "elementNamePattern": ["@unfoldresearch/**"]
+      }
+    ],
+    "groups": [
+      ["builtin", "external", "unfoldresearch"],
+      [
+        "type-internal",
+        "value-internal",
+        "type-sibling",
+        "value-sibling",
+        "value-parent",
+        "type-parent",
+        "type-index",
+        "value-index",
+        "unknown"
+      ],
+      ["style"]
+    ]
+  },
+  "sortTailwindcss": {
+    "stylesheet": "./apps/web/src/index.css",
+    "functions": ["cn"]
+  },
+  "sortPackageJson": true,
+  "ignorePatterns": [".yarn/**", "**/dist/**", "**/.turbo/**"]
+}

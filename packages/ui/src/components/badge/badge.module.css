@@ -1,0 +1,36 @@
+@layer components {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: var(--ui-radius-pill);
+    background: var(--_bg);
+    color: var(--_fg);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+    white-space: nowrap;
+  }
+
+  .neutral {
+    --_bg: var(--ui-color-neutral-subtle);
+    --_fg: var(--ui-color-neutral-subtle-fg);
+  }
+  .accent {
+    --_bg: var(--ui-color-accent-subtle);
+    --_fg: var(--ui-color-accent-subtle-fg);
+  }
+  .success {
+    --_bg: var(--ui-color-success-subtle);
+    --_fg: var(--ui-color-success-subtle-fg);
+  }
+  .warning {
+    --_bg: var(--ui-color-warning-subtle);
+    --_fg: var(--ui-color-warning-subtle-fg);
+  }
+  .danger {
+    --_bg: var(--ui-color-danger-subtle);
+    --_fg: var(--ui-color-danger-subtle-fg);
+  }
+}

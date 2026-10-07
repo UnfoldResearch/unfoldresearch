@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "@unfoldresearch/tokens";
+
+@layer base {
+  html {
+    @apply bg-canvas font-sans text-fg antialiased;
+  }
+
+  body {
+    @apply min-h-dvh;
+  }
+
+  #root {
+    isolation: isolate;
+  }
+}

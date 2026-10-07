@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.turbo/
+*.tsbuildinfo
+.DS_Store
+*.local
+.env*.local
+
+# Yarn (no PnP, no zero-installs)
+.yarn/*
+!.yarn/releases
+!.yarn/patches
+!.yarn/plugins
+.pnp.*

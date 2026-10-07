@@ -1,0 +1,86 @@
+/*
+ * Tailwind bridge: exposes the --ui-* semantic tokens as utilities (bg-surface, text-fg-muted, …).
+ * `inline` keeps the var() reference so roles stay live when data-theme changes.
+ */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  /* Disable Tailwind's default palette: everything goes through roles. */
+  --color-*: initial;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-canvas: var(--ui-color-canvas);
+  --color-surface: var(--ui-color-surface);
+  --color-surface-sunken: var(--ui-color-surface-sunken);
+  --color-surface-raised: var(--ui-color-surface-raised);
+  --color-backdrop: var(--ui-color-backdrop);
+
+  --color-fg: var(--ui-color-fg);
+  --color-fg-muted: var(--ui-color-fg-muted);
+  --color-fg-subtle: var(--ui-color-fg-subtle);
+  --color-fg-inverted: var(--ui-color-fg-inverted);
+
+  --color-border: var(--ui-color-border);
+  --color-border-strong: var(--ui-color-border-strong);
+  --color-ring: var(--ui-color-ring);
+
+  --color-neutral: var(--ui-color-neutral);
+  --color-neutral-hover: var(--ui-color-neutral-hover);
+  --color-neutral-fg: var(--ui-color-neutral-fg);
+  --color-neutral-subtle: var(--ui-color-neutral-subtle);
+  --color-neutral-subtle-hover: var(--ui-color-neutral-subtle-hover);
+  --color-neutral-subtle-fg: var(--ui-color-neutral-subtle-fg);
+
+  --color-accent: var(--ui-color-accent);
+  --color-accent-hover: var(--ui-color-accent-hover);
+  --color-accent-fg: var(--ui-color-accent-fg);
+  --color-accent-subtle: var(--ui-color-accent-subtle);
+  --color-accent-subtle-hover: var(--ui-color-accent-subtle-hover);
+  --color-accent-subtle-fg: var(--ui-color-accent-subtle-fg);
+
+  --color-danger: var(--ui-color-danger);
+  --color-danger-hover: var(--ui-color-danger-hover);
+  --color-danger-fg: var(--ui-color-danger-fg);
+  --color-danger-subtle: var(--ui-color-danger-subtle);
+  --color-danger-subtle-hover: var(--ui-color-danger-subtle-hover);
+  --color-danger-subtle-fg: var(--ui-color-danger-subtle-fg);
+
+  --color-success: var(--ui-color-success);
+  --color-success-hover: var(--ui-color-success-hover);
+  --color-success-fg: var(--ui-color-success-fg);
+  --color-success-subtle: var(--ui-color-success-subtle);
+  --color-success-subtle-hover: var(--ui-color-success-subtle-hover);
+  --color-success-subtle-fg: var(--ui-color-success-subtle-fg);
+
+  --color-warning: var(--ui-color-warning);
+  --color-warning-hover: var(--ui-color-warning-hover);
+  --color-warning-fg: var(--ui-color-warning-fg);
+  --color-warning-subtle: var(--ui-color-warning-subtle);
+  --color-warning-subtle-hover: var(--ui-color-warning-subtle-hover);
+  --color-warning-subtle-fg: var(--ui-color-warning-subtle-fg);
+
+  /* Type */
+  --font-sans: var(--ui-font-sans);
+  --font-display: var(--ui-font-display);
+  --font-mono: var(--ui-font-mono);
+
+  /* Shape (rounded-control, rounded-card, …) */
+  --radius-control: var(--ui-radius-control);
+  --radius-card: var(--ui-radius-card);
+  --radius-popup: var(--ui-radius-popup);
+  --radius-pill: var(--ui-radius-pill);
+
+  /* Sizing (h-control-md, size-control-sm, …) */
+  --spacing-control-sm: var(--ui-size-control-sm);
+  --spacing-control-md: var(--ui-size-control-md);
+  --spacing-control-lg: var(--ui-size-control-lg);
+
+  /* Elevation (shadow-card, shadow-popup) */
+  --shadow-card: var(--ui-shadow-card);
+  --shadow-popup: var(--ui-shadow-popup);
+
+  /* Motion */
+  --ease-standard: var(--ui-ease-standard);
+}

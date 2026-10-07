@@ -1,0 +1,182 @@
+/*
+ * Colour ramps generated from the knobs (L = lightness ladder, C = knob chroma × taper).
+ * Replace any ramp with hand-picked values if a design needs it.
+ */
+:root {
+  /* neutral */
+  --palette-neutral-50: oklch(
+    0.985 calc(var(--knob-neutral-chroma) * 0.1) var(--knob-neutral-hue)
+  );
+  --palette-neutral-100: oklch(
+    0.965 calc(var(--knob-neutral-chroma) * 0.2) var(--knob-neutral-hue)
+  );
+  --palette-neutral-200: oklch(
+    0.925 calc(var(--knob-neutral-chroma) * 0.35) var(--knob-neutral-hue)
+  );
+  --palette-neutral-300: oklch(
+    0.87 calc(var(--knob-neutral-chroma) * 0.55) var(--knob-neutral-hue)
+  );
+  --palette-neutral-400: oklch(
+    0.77 calc(var(--knob-neutral-chroma) * 0.8) var(--knob-neutral-hue)
+  );
+  --palette-neutral-500: oklch(
+    0.65 calc(var(--knob-neutral-chroma) * 1) var(--knob-neutral-hue)
+  );
+  --palette-neutral-600: oklch(
+    0.57 calc(var(--knob-neutral-chroma) * 1) var(--knob-neutral-hue)
+  );
+  --palette-neutral-700: oklch(
+    0.49 calc(var(--knob-neutral-chroma) * 0.9) var(--knob-neutral-hue)
+  );
+  --palette-neutral-800: oklch(
+    0.41 calc(var(--knob-neutral-chroma) * 0.75) var(--knob-neutral-hue)
+  );
+  --palette-neutral-900: oklch(
+    0.32 calc(var(--knob-neutral-chroma) * 0.6) var(--knob-neutral-hue)
+  );
+  --palette-neutral-950: oklch(
+    0.24 calc(var(--knob-neutral-chroma) * 0.5) var(--knob-neutral-hue)
+  );
+
+  /* accent */
+  --palette-accent-50: oklch(
+    0.985 calc(var(--knob-accent-chroma) * 0.1) var(--knob-accent-hue)
+  );
+  --palette-accent-100: oklch(
+    0.965 calc(var(--knob-accent-chroma) * 0.2) var(--knob-accent-hue)
+  );
+  --palette-accent-200: oklch(
+    0.925 calc(var(--knob-accent-chroma) * 0.35) var(--knob-accent-hue)
+  );
+  --palette-accent-300: oklch(
+    0.87 calc(var(--knob-accent-chroma) * 0.55) var(--knob-accent-hue)
+  );
+  --palette-accent-400: oklch(
+    0.77 calc(var(--knob-accent-chroma) * 0.8) var(--knob-accent-hue)
+  );
+  --palette-accent-500: oklch(
+    0.65 calc(var(--knob-accent-chroma) * 1) var(--knob-accent-hue)
+  );
+  --palette-accent-600: oklch(
+    0.57 calc(var(--knob-accent-chroma) * 1) var(--knob-accent-hue)
+  );
+  --palette-accent-700: oklch(
+    0.49 calc(var(--knob-accent-chroma) * 0.9) var(--knob-accent-hue)
+  );
+  --palette-accent-800: oklch(
+    0.41 calc(var(--knob-accent-chroma) * 0.75) var(--knob-accent-hue)
+  );
+  --palette-accent-900: oklch(
+    0.32 calc(var(--knob-accent-chroma) * 0.6) var(--knob-accent-hue)
+  );
+  --palette-accent-950: oklch(
+    0.24 calc(var(--knob-accent-chroma) * 0.5) var(--knob-accent-hue)
+  );
+
+  /* danger */
+  --palette-danger-50: oklch(
+    0.985 calc(var(--knob-danger-chroma) * 0.1) var(--knob-danger-hue)
+  );
+  --palette-danger-100: oklch(
+    0.965 calc(var(--knob-danger-chroma) * 0.2) var(--knob-danger-hue)
+  );
+  --palette-danger-200: oklch(
+    0.925 calc(var(--knob-danger-chroma) * 0.35) var(--knob-danger-hue)
+  );
+  --palette-danger-300: oklch(
+    0.87 calc(var(--knob-danger-chroma) * 0.55) var(--knob-danger-hue)
+  );
+  --palette-danger-400: oklch(
+    0.77 calc(var(--knob-danger-chroma) * 0.8) var(--knob-danger-hue)
+  );
+  --palette-danger-500: oklch(
+    0.65 calc(var(--knob-danger-chroma) * 1) var(--knob-danger-hue)
+  );
+  --palette-danger-600: oklch(
+    0.57 calc(var(--knob-danger-chroma) * 1) var(--knob-danger-hue)
+  );
+  --palette-danger-700: oklch(
+    0.49 calc(var(--knob-danger-chroma) * 0.9) var(--knob-danger-hue)
+  );
+  --palette-danger-800: oklch(
+    0.41 calc(var(--knob-danger-chroma) * 0.75) var(--knob-danger-hue)
+  );
+  --palette-danger-900: oklch(
+    0.32 calc(var(--knob-danger-chroma) * 0.6) var(--knob-danger-hue)
+  );
+  --palette-danger-950: oklch(
+    0.24 calc(var(--knob-danger-chroma) * 0.5) var(--knob-danger-hue)
+  );
+
+  /* success */
+  --palette-success-50: oklch(
+    0.985 calc(var(--knob-success-chroma) * 0.1) var(--knob-success-hue)
+  );
+  --palette-success-100: oklch(
+    0.965 calc(var(--knob-success-chroma) * 0.2) var(--knob-success-hue)
+  );
+  --palette-success-200: oklch(
+    0.925 calc(var(--knob-success-chroma) * 0.35) var(--knob-success-hue)
+  );
+  --palette-success-300: oklch(
+    0.87 calc(var(--knob-success-chroma) * 0.55) var(--knob-success-hue)
+  );
+  --palette-success-400: oklch(
+    0.77 calc(var(--knob-success-chroma) * 0.8) var(--knob-success-hue)
+  );
+  --palette-success-500: oklch(
+    0.65 calc(var(--knob-success-chroma) * 1) var(--knob-success-hue)
+  );
+  --palette-success-600: oklch(
+    0.57 calc(var(--knob-success-chroma) * 1) var(--knob-success-hue)
+  );
+  --palette-success-700: oklch(
+    0.49 calc(var(--knob-success-chroma) * 0.9) var(--knob-success-hue)
+  );
+  --palette-success-800: oklch(
+    0.41 calc(var(--knob-success-chroma) * 0.75) var(--knob-success-hue)
+  );
+  --palette-success-900: oklch(
+    0.32 calc(var(--knob-success-chroma) * 0.6) var(--knob-success-hue)
+  );
+  --palette-success-950: oklch(
+    0.24 calc(var(--knob-success-chroma) * 0.5) var(--knob-success-hue)
+  );
+
+  /* warning */
+  --palette-warning-50: oklch(
+    0.985 calc(var(--knob-warning-chroma) * 0.1) var(--knob-warning-hue)
+  );
+  --palette-warning-100: oklch(
+    0.965 calc(var(--knob-warning-chroma) * 0.2) var(--knob-warning-hue)
+  );
+  --palette-warning-200: oklch(
+    0.925 calc(var(--knob-warning-chroma) * 0.35) var(--knob-warning-hue)
+  );
+  --palette-warning-300: oklch(
+    0.87 calc(var(--knob-warning-chroma) * 0.55) var(--knob-warning-hue)
+  );
+  --palette-warning-400: oklch(
+    0.77 calc(var(--knob-warning-chroma) * 0.8) var(--knob-warning-hue)
+  );
+  --palette-warning-500: oklch(
+    0.65 calc(var(--knob-warning-chroma) * 1) var(--knob-warning-hue)
+  );
+  --palette-warning-600: oklch(
+    0.57 calc(var(--knob-warning-chroma) * 1) var(--knob-warning-hue)
+  );
+  --palette-warning-700: oklch(
+    0.49 calc(var(--knob-warning-chroma) * 0.9) var(--knob-warning-hue)
+  );
+  --palette-warning-800: oklch(
+    0.41 calc(var(--knob-warning-chroma) * 0.75) var(--knob-warning-hue)
+  );
+  --palette-warning-900: oklch(
+    0.32 calc(var(--knob-warning-chroma) * 0.6) var(--knob-warning-hue)
+  );
+  --palette-warning-950: oklch(
+    0.24 calc(var(--knob-warning-chroma) * 0.5) var(--knob-warning-hue)
+  );
+  --palette-white: oklch(1 0 0);
+  --palette-black: oklch(0 0 0);
+}

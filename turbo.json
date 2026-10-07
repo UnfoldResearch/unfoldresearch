@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/turbo/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "!README.md"],
+      "outputs": ["dist/**"]
+    },
+    "ts": {
+      "dependsOn": ["^ts"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

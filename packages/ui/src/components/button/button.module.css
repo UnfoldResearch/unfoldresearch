@@ -1,0 +1,123 @@
+@layer components {
+  /*
+   * Tone sets a palette (--_solid, --_subtle, …); variant picks which parts of it to use.
+   * Adding a tone or a variant is one rule, not one per combination.
+   */
+  .button {
+    /* Reset private vars so they never inherit from an ancestor. */
+    --_bg: transparent;
+    --_border: transparent;
+
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: var(--_height);
+    padding-inline: var(--_padding);
+    border: 1px solid var(--_border);
+    border-radius: var(--ui-radius-control);
+    background: var(--_bg);
+    color: var(--_fg);
+    font-weight: 500;
+    font-size: var(--_font-size);
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    transition-property: background-color, border-color, color;
+    transition-duration: var(--ui-duration-fast);
+    transition-timing-function: var(--ui-ease-standard);
+  }
+
+  .button svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Tones */
+  .accent {
+    --_solid: var(--ui-color-accent);
+    --_solid-hover: var(--ui-color-accent-hover);
+    --_solid-fg: var(--ui-color-accent-fg);
+    --_subtle: var(--ui-color-accent-subtle);
+    --_subtle-hover: var(--ui-color-accent-subtle-hover);
+    --_subtle-fg: var(--ui-color-accent-subtle-fg);
+    --_line: var(--ui-color-accent);
+  }
+
+  .neutral {
+    --_solid: var(--ui-color-neutral);
+    --_solid-hover: var(--ui-color-neutral-hover);
+    --_solid-fg: var(--ui-color-neutral-fg);
+    --_subtle: var(--ui-color-neutral-subtle);
+    --_subtle-hover: var(--ui-color-neutral-subtle-hover);
+    --_subtle-fg: var(--ui-color-fg);
+    --_line: var(--ui-color-border-strong);
+  }
+
+  .danger {
+    --_solid: var(--ui-color-danger);
+    --_solid-hover: var(--ui-color-danger-hover);
+    --_solid-fg: var(--ui-color-danger-fg);
+    --_subtle: var(--ui-color-danger-subtle);
+    --_subtle-hover: var(--ui-color-danger-subtle-hover);
+    --_subtle-fg: var(--ui-color-danger-subtle-fg);
+    --_line: var(--ui-color-danger);
+  }
+
+  /* Variants */
+  .solid {
+    --_bg: var(--_solid);
+    --_fg: var(--_solid-fg);
+  }
+  .solid:hover:not([data-disabled]) {
+    --_bg: var(--_solid-hover);
+  }
+
+  .soft {
+    --_bg: var(--_subtle);
+    --_fg: var(--_subtle-fg);
+  }
+  .soft:hover:not([data-disabled]) {
+    --_bg: var(--_subtle-hover);
+  }
+
+  .outline {
+    --_border: var(--_line);
+    --_fg: var(--_subtle-fg);
+  }
+  .outline:hover:not([data-disabled]) {
+    --_bg: var(--_subtle);
+  }
+
+  .ghost {
+    --_fg: var(--_subtle-fg);
+  }
+  .ghost:hover:not([data-disabled]) {
+    --_bg: var(--_subtle);
+  }
+
+  /* Sizes */
+  .sm {
+    --_height: var(--ui-size-control-sm);
+    --_padding: 0.75rem;
+    --_font-size: 0.875rem;
+  }
+  .md {
+    --_height: var(--ui-size-control-md);
+    --_padding: 1rem;
+    --_font-size: 0.875rem;
+  }
+  .lg {
+    --_height: var(--ui-size-control-lg);
+    --_padding: 1.25rem;
+    --_font-size: 1rem;
+  }
+
+  .iconOnly {
+    width: var(--_height);
+    padding-inline: 0;
+  }
+}

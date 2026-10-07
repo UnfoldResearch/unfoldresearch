@@ -1,0 +1,70 @@
+@layer components {
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .label {
+    color: var(--ui-color-fg);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .label[data-disabled] {
+    opacity: 0.5;
+  }
+
+  .description {
+    color: var(--ui-color-fg-subtle);
+    font-size: 0.875rem;
+  }
+
+  .error {
+    color: var(--ui-color-danger-subtle-fg);
+    font-size: 0.875rem;
+  }
+
+  .input {
+    --_focus-offset: 0;
+
+    width: 100%;
+    min-width: 0;
+    height: var(--_height);
+    padding-inline: var(--_padding);
+    border: 1px solid var(--ui-color-border-strong);
+    border-radius: var(--ui-radius-control);
+    background: var(--ui-color-surface);
+    color: var(--ui-color-fg);
+    font-size: var(--_font-size);
+    transition: border-color var(--ui-duration-fast) var(--ui-ease-standard);
+  }
+
+  .input::placeholder {
+    color: var(--ui-color-fg-subtle);
+  }
+
+  .input:hover:not([data-disabled]) {
+    border-color: var(--ui-color-fg-subtle);
+  }
+
+  .input[data-invalid] {
+    border-color: var(--ui-color-danger);
+  }
+
+  .sm {
+    --_height: var(--ui-size-control-sm);
+    --_padding: 0.625rem;
+    --_font-size: 0.875rem;
+  }
+  .md {
+    --_height: var(--ui-size-control-md);
+    --_padding: 0.75rem;
+    --_font-size: 0.875rem;
+  }
+  .lg {
+    --_height: var(--ui-size-control-lg);
+    --_padding: 1rem;
+    --_font-size: 1rem;
+  }
+}

@@ -1,0 +1,36 @@
+@layer components {
+  .root {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 1px solid var(--ui-color-border-strong);
+    border-radius: var(--ui-radius-inner);
+    background: var(--ui-color-surface);
+    cursor: pointer;
+    transition-property: background-color, border-color;
+    transition-duration: var(--ui-duration-fast);
+    transition-timing-function: var(--ui-ease-standard);
+  }
+
+  .root[data-checked] {
+    border-color: var(--ui-color-accent);
+    background: var(--ui-color-accent);
+    color: var(--ui-color-accent-fg);
+  }
+
+  .indicator {
+    display: flex;
+  }
+
+  .indicator[data-unchecked] {
+    display: none;
+  }
+
+  .indicator svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}

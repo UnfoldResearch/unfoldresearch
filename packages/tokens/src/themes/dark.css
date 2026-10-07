@@ -1,0 +1,70 @@
+/* Semantic roles — dark mode. Only roles that differ from light need to be listed. */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ui-color-canvas: var(--palette-neutral-950);
+  --ui-color-surface: var(--palette-neutral-900);
+  --ui-color-surface-sunken: oklch(
+    0.2 calc(var(--knob-neutral-chroma) * 0.5) var(--knob-neutral-hue)
+  );
+  --ui-color-surface-raised: var(--palette-neutral-800);
+  --ui-color-backdrop: oklch(0 0 0 / 0.6);
+
+  --ui-color-fg: var(--palette-neutral-50);
+  --ui-color-fg-muted: var(--palette-neutral-300);
+  --ui-color-fg-subtle: var(--palette-neutral-400);
+  --ui-color-fg-inverted: var(--palette-neutral-950);
+
+  --ui-color-border: var(--palette-neutral-800);
+  --ui-color-border-strong: var(--palette-neutral-700);
+  --ui-color-ring: var(--palette-accent-400);
+
+  --ui-color-neutral: var(--palette-neutral-100);
+  --ui-color-neutral-hover: var(--palette-neutral-200);
+  --ui-color-neutral-fg: var(--palette-neutral-950);
+  --ui-color-neutral-subtle: var(--palette-neutral-800);
+  --ui-color-neutral-subtle-hover: var(--palette-neutral-700);
+  --ui-color-neutral-subtle-fg: var(--palette-neutral-100);
+
+  --ui-color-accent: var(--palette-accent-500);
+  --ui-color-accent-hover: var(--palette-accent-400);
+  --ui-color-accent-subtle: oklch(
+    0.3 calc(var(--knob-accent-chroma) * 0.4) var(--knob-accent-hue)
+  );
+  --ui-color-accent-subtle-hover: oklch(
+    0.36 calc(var(--knob-accent-chroma) * 0.5) var(--knob-accent-hue)
+  );
+  --ui-color-accent-subtle-fg: var(--palette-accent-200);
+
+  --ui-color-danger: var(--palette-danger-500);
+  --ui-color-danger-hover: var(--palette-danger-400);
+  --ui-color-danger-subtle: oklch(
+    0.3 calc(var(--knob-danger-chroma) * 0.4) var(--knob-danger-hue)
+  );
+  --ui-color-danger-subtle-hover: oklch(
+    0.36 calc(var(--knob-danger-chroma) * 0.5) var(--knob-danger-hue)
+  );
+  --ui-color-danger-subtle-fg: var(--palette-danger-200);
+
+  --ui-color-success: var(--palette-success-500);
+  --ui-color-success-hover: var(--palette-success-400);
+  --ui-color-success-subtle: oklch(
+    0.3 calc(var(--knob-success-chroma) * 0.4) var(--knob-success-hue)
+  );
+  --ui-color-success-subtle-hover: oklch(
+    0.36 calc(var(--knob-success-chroma) * 0.5) var(--knob-success-hue)
+  );
+  --ui-color-success-subtle-fg: var(--palette-success-200);
+
+  --ui-color-warning: var(--palette-warning-400);
+  --ui-color-warning-hover: var(--palette-warning-300);
+  --ui-color-warning-subtle: oklch(
+    0.3 calc(var(--knob-warning-chroma) * 0.4) var(--knob-warning-hue)
+  );
+  --ui-color-warning-subtle-hover: oklch(
+    0.36 calc(var(--knob-warning-chroma) * 0.5) var(--knob-warning-hue)
+  );
+  --ui-color-warning-subtle-fg: var(--palette-warning-200);
+
+  --ui-shadow-color: oklch(0 0 0 / 0.4);
+}
