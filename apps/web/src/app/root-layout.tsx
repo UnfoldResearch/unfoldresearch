@@ -1,8 +1,6 @@
 import { cn } from "@unfoldresearch/ui";
 import { Link, NavLink, Outlet } from "react-router";
 
-import { ColorModeMenu } from "./color-mode-menu";
-
 const navItems = [
   { to: "/playground", label: "Playground" },
   { to: "/users", label: "Users" },
@@ -34,9 +32,6 @@ export function RootLayout() {
               </NavLink>
             ))}
           </nav>
-          <div className="ml-auto">
-            <ColorModeMenu />
-          </div>
         </div>
       </header>
       <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-10">

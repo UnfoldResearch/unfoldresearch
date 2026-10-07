@@ -74,8 +74,7 @@ Styling has three layers, each in one place. Change the layer that matches the s
 - Adding a token: define it in `packages/tokens` and, if it should be a utility, map it in
   `tailwind.css`. New radius/shadow/spacing utility names also go in
   `packages/ui/src/lib/cn.ts` so tailwind-merge resolves conflicts correctly.
-- Colour mode is `data-theme="light" | "dark"` on `<html>`, driven by the zustand
-  `usePreferences` store (persisted, follows the OS when set to "system").
+- The app uses the light theme only; the tokens' dark theme is never switched on.
 
 ## App conventions (`apps/web`)
 

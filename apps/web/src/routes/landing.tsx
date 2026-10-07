@@ -13,7 +13,6 @@ import {
 import type { ReactNode } from "react";
 import { Link } from "react-router";
 
-import { ColorModeMenu } from "../app/color-mode-menu";
 import { CommunityRings } from "../features/landing/community-rings";
 import { ComputePool } from "../features/landing/compute-pool";
 import { KnowledgeGraph } from "../features/landing/knowledge-graph/knowledge-graph";
@@ -68,12 +67,12 @@ function Header() {
             </a>
           ))}
         </nav>
-        <div className="ml-auto flex items-center gap-2">
-          <ColorModeMenu />
-          <a href="#deploy" className={buttonClassName({ size: "sm" })}>
-            Get started
-          </a>
-        </div>
+        <a
+          href="#deploy"
+          className={cn(buttonClassName({ size: "sm" }), "ml-auto")}
+        >
+          Get started
+        </a>
       </div>
     </header>
   );
