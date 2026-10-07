@@ -122,7 +122,7 @@ function Hero() {
     <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:pt-24">
       <div className="flex flex-col gap-6">
         <Badge tone="accent" className="self-start">
-          Distributed research for humans and AI
+          Democratized research for humans and AI
         </Badge>
         <h1 className="font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
           Research that unfolds in the open.
@@ -208,7 +208,7 @@ function Principles() {
     },
     {
       title: "Open by default, steered by its community",
-      body: "Anyone can join and contribute, along with their AI. Maintainers set the direction, and communities choose what stays private.",
+      body: "Science should be open to everyone. Anyone can join and contribute, along with their AI. Maintainers set the direction, and communities choose what stays private.",
     },
   ];
   return (
