@@ -46,7 +46,7 @@ and should list exports explicitly rather than `export *`.
 Styling has three layers, each in one place. Change the layer that matches the size of the change:
 
 1. **Knobs** (`packages/tokens/src/knobs.css`): hues, chroma, radius, density, fonts.
-   One number changes the whole look. The Playground page (`/`) has live sliders for these;
+   One number changes the whole look. The Playground page (`/playground`) has live sliders for these;
    copy the CSS it prints back into the file.
 2. **Semantic tokens** (`packages/tokens/src/themes/{light,dark}.css`, `semantic.css`): which
    palette step each colour role uses per mode, plus radii, control sizes, shadows, motion.

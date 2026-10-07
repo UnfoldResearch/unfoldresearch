@@ -4,7 +4,7 @@ import { Link, NavLink, Outlet } from "react-router";
 import { ColorModeMenu } from "./color-mode-menu";
 
 const navItems = [
-  { to: "/", label: "Playground" },
+  { to: "/playground", label: "Playground" },
   { to: "/users", label: "Users" },
 ];
 
