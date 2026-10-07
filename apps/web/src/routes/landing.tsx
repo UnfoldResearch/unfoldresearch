@@ -16,7 +16,7 @@ import { Link } from "react-router";
 import { ColorModeMenu } from "../app/color-mode-menu";
 import { CommunityRings } from "../features/landing/community-rings";
 import { ComputePool } from "../features/landing/compute-pool";
-import { KnowledgeGraph } from "../features/landing/knowledge-graph";
+import { KnowledgeGraph } from "../features/landing/knowledge-graph/knowledge-graph";
 import { ResearchLoop } from "../features/landing/research-loop";
 
 const sections = [
