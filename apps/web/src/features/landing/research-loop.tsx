@@ -1,6 +1,9 @@
-const cx = 260;
+const cx = 280;
 const cy = 190;
-const r = 130;
+// Wider than tall, so the side stages leave room for the centre caption.
+const rx = 180;
+const ry = 130;
+const boxWidth = 184;
 
 // Clockwise from the top. Angles are SVG angles (y points down), in degrees.
 const stages = [
@@ -14,30 +17,49 @@ const arrowAngles = [-45, 45, 135, 225];
 
 const toRad = (deg: number) => (deg * Math.PI) / 180;
 
+const onLoop = (angle: number) => ({
+  x: cx + rx * Math.cos(toRad(angle)),
+  y: cy + ry * Math.sin(toRad(angle)),
+});
+
 export function ResearchLoop({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 520 380" className={className}>
+    <svg viewBox="0 0 560 380" className={className}>
       <title>
         The research loop: an open question attracts contributions,
         contributions are verified, and verified results unlock new questions.
       </title>
-      <circle
+      <ellipse
         cx={cx}
         cy={cy}
-        r={r}
+        rx={rx}
+        ry={ry}
         className="fill-none stroke-border-strong"
         strokeWidth="1.5"
       />
-      <circle cx={cx} cy={cy} r={r - 34} className="fill-accent-subtle" />
+      <ellipse
+        cx={cx}
+        cy={cy}
+        rx={rx - 34}
+        ry={ry - 34}
+        className="fill-accent-subtle"
+      />
 
       {arrowAngles.map((angle) => {
-        const x = cx + r * Math.cos(toRad(angle));
-        const y = cy + r * Math.sin(toRad(angle));
+        const { x, y } = onLoop(angle);
+        // Point along the loop, clockwise.
+        const heading =
+          (Math.atan2(
+            ry * Math.cos(toRad(angle)),
+            -rx * Math.sin(toRad(angle)),
+          ) *
+            180) /
+          Math.PI;
         return (
           <path
             key={angle}
             d="M-5 -6L5 0L-5 6Z"
-            transform={`translate(${x} ${y}) rotate(${angle + 90})`}
+            transform={`translate(${x} ${y}) rotate(${heading})`}
             className="fill-fg-subtle"
           />
         );
@@ -63,9 +85,8 @@ export function ResearchLoop({ className }: { className?: string }) {
       </text>
 
       {stages.map((stage, i) => {
-        const x = cx + r * Math.cos(toRad(stage.angle));
-        const y = cy + r * Math.sin(toRad(stage.angle));
-        const width = 170;
+        const { x, y } = onLoop(stage.angle);
+        const width = boxWidth;
         const height = 52;
         return (
           <g key={stage.title} transform={`translate(${x} ${y})`}>

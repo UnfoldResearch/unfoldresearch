@@ -48,6 +48,7 @@ export {
   MenuGroup,
   MenuGroupLabel,
   MenuItem,
+  MenuLinkItem,
   MenuSeparator,
   MenuTrigger,
   type MenuContentProps,
@@ -64,5 +65,5 @@ export {
   type TooltipProps,
 } from "./components/tooltip/tooltip";
 
-export { CheckIcon, ChevronRightIcon, XIcon } from "./icons/icons";
+export { CheckIcon, ChevronRightIcon, MenuIcon, XIcon } from "./icons/icons";
 export { cn, mergeClassName, type ClassValue } from "./lib/cn";

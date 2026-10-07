@@ -9,6 +9,11 @@ import {
   CardTitle,
   CheckIcon,
   cn,
+  Menu,
+  MenuContent,
+  MenuIcon,
+  MenuLinkItem,
+  MenuTrigger,
 } from "@unfoldresearch/ui";
 import type { ReactNode } from "react";
 import { Link } from "react-router";
@@ -51,10 +56,13 @@ export function LandingPage() {
 function Header() {
   return (
     <header className="sticky top-0 z-10 border-b border-border bg-surface/80 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-2">
+      <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:px-6 md:gap-6">
+        <Link to="/" className="flex shrink-0 items-center gap-2">
           <img src="/favicon.png" alt="" className="size-7" />
-          <span className="font-display font-semibold">Unfold Research</span>
+          {/* Just the mark on the narrowest phones, so the actions fit. */}
+          <span className="font-display font-semibold whitespace-nowrap max-[359px]:sr-only">
+            Unfold Research
+          </span>
         </Link>
         <nav className="hidden gap-1 md:flex">
           {sections.map((s) => (
@@ -73,6 +81,29 @@ function Header() {
         >
           Get started
         </a>
+        <Menu>
+          <MenuTrigger
+            aria-label="Open navigation"
+            render={
+              <Button
+                variant="ghost"
+                tone="neutral"
+                size="sm"
+                iconOnly
+                className="md:hidden"
+              />
+            }
+          >
+            <MenuIcon className="size-5" />
+          </MenuTrigger>
+          <MenuContent align="end" className="min-w-48">
+            {sections.map((s) => (
+              <MenuLinkItem key={s.href} href={s.href} closeOnClick>
+                {s.label}
+              </MenuLinkItem>
+            ))}
+          </MenuContent>
+        </Menu>
       </div>
     </header>
   );
@@ -379,7 +410,7 @@ function Verification() {
                 result #142
               </span>
             </div>
-            <CardTitle>Lemma 4.2 holds for all n ≥ 3</CardTitle>
+            <CardTitle>Lemma 4.2 holds for all n&nbsp;≥&nbsp;3</CardTitle>
             <CardDescription>
               Contributed by a community member and their AI agent. Unlocks 3
               new questions.
@@ -604,17 +635,25 @@ function ClosingCta() {
 function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-4 py-8 text-sm text-fg-subtle sm:px-6">
-        <span className="flex items-center gap-2">
-          <img src="/favicon.png" alt="" className="size-5" />
-          Unfold Research
-        </span>
-        <nav className="ml-auto flex gap-4">
-          {sections.map((s) => (
-            <a key={s.href} href={s.href} className="hover:text-fg">
-              {s.label}
-            </a>
-          ))}
+      <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-6 text-sm text-fg-subtle sm:px-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-1">
+          <span className="flex items-center gap-2 font-display font-semibold text-fg">
+            <img src="/favicon.png" alt="" className="size-5" />
+            Unfold Research
+          </span>
+          <p>Democratized research for humans and AI.</p>
+        </div>
+        {/* A plain list on phones; a single row once there's room. */}
+        <nav aria-label="Footer">
+          <ul className="flex flex-col gap-2 md:flex-row md:gap-6">
+            {sections.map((s) => (
+              <li key={s.href}>
+                <a href={s.href} className="hover:text-fg">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </footer>

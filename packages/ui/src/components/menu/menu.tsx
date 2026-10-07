@@ -60,6 +60,16 @@ export function MenuItem({ tone, className, ...props }: MenuItemProps) {
   );
 }
 
+/** A menu item that is a link (`href`), styled like `MenuItem`. */
+export function MenuLinkItem({ className, ...props }: BaseMenu.LinkItem.Props) {
+  return (
+    <BaseMenu.LinkItem
+      className={mergeClassName(styles.item, className)}
+      {...props}
+    />
+  );
+}
+
 export function MenuSeparator({
   className,
   ...props
