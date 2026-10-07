@@ -14,7 +14,7 @@ export function KnowledgeGraph({ className }: { className?: string }) {
   const workers = workerViews(sim);
 
   return (
-    <div ref={ref} className={cn("relative", className)}>
+    <div ref={ref} className={cn("relative select-none", className)}>
       <svg viewBox="0 0 480 400" className="block h-auto w-full">
         <title>
           A live research graph: people and AI agents pick up open questions,
