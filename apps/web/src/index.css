@@ -3,7 +3,8 @@
 
 @layer base {
   html {
-    @apply bg-canvas font-sans text-fg antialiased;
+    /* In-page links (#section) glide instead of jumping, unless motion is reduced. */
+    @apply bg-canvas font-sans text-fg antialiased motion-safe:scroll-smooth;
   }
 
   body {

@@ -57,7 +57,17 @@ function Header() {
   return (
     <header className="sticky top-0 z-10 border-b border-border bg-surface/80 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:px-6 md:gap-6">
-        <Link to="/" className="flex shrink-0 items-center gap-2">
+        <Link
+          to="/"
+          // Already on this page: glide back to the top (smooth via the
+          // html scroll-behavior) and drop any #section from the URL.
+          onClick={(event) => {
+            event.preventDefault();
+            window.scrollTo({ top: 0 });
+            history.replaceState(null, "", location.pathname);
+          }}
+          className="flex shrink-0 items-center gap-2"
+        >
           <img src="/favicon.png" alt="" className="size-7" />
           {/* Just the mark on the narrowest phones, so the actions fit. */}
           <span className="font-display font-semibold whitespace-nowrap max-[359px]:sr-only">
