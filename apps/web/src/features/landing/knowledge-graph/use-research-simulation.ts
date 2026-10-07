@@ -1,12 +1,14 @@
 import { useEffect, useReducer, useState } from "react";
+import type { RefObject } from "react";
 
 import { createSimulation, step, warmUp } from "./simulation";
 
 /**
- * A running research simulation, advanced every frame. It starts with some
- * history already grown; for reduced motion it stays on that first frame.
+ * A running research simulation, advanced every frame while `ref`'s element
+ * is on screen. It starts with some history already grown; for reduced
+ * motion it stays on that first frame.
  */
-export function useResearchSimulation() {
+export function useResearchSimulation(ref: RefObject<Element | null>) {
   const [sim] = useState(() => {
     const created = createSimulation();
     warmUp(created, 30);
@@ -15,7 +17,9 @@ export function useResearchSimulation() {
   const [, rerender] = useReducer((n: number) => n + 1, 0);
 
   useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const element = ref.current;
+    if (!element || matchMedia("(prefers-reduced-motion: reduce)").matches)
+      return;
     let frame = 0;
     // Timed from the first frame's own timestamp: it can predate a
     // performance.now() read here, which would give a negative step.
@@ -27,9 +31,18 @@ export function useResearchSimulation() {
       rerender();
       frame = requestAnimationFrame(tick);
     };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [sim]);
+    // Off screen, skip the per-frame render entirely; resume where it left off.
+    const observer = new IntersectionObserver(([entry]) => {
+      cancelAnimationFrame(frame);
+      last = undefined;
+      if (entry?.isIntersecting) frame = requestAnimationFrame(tick);
+    });
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }, [sim, ref]);
 
   return sim;
 }

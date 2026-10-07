@@ -415,15 +415,16 @@ function addSpoke(sim: Simulation, node: SimNode) {
 }
 
 // ---------------------------------------------------------------------------
-// Views for drawing, in screen space.
+// Views for drawing, in graph space: the scene shifts them by -cameraY as a
+// whole, so a node only changes when its own state does.
 
 export function nodeViews(sim: Simulation) {
-  const { time: t, cameraY } = sim;
+  const { time: t } = sim;
   return [...sim.nodes.values()].map((node) => ({
     id: node.id,
     state: {
       x: node.x,
-      y: node.y - cameraY,
+      y: node.y,
       visible: ramp(t, node.createdAt, 0.6),
       hypothesis: ramp(t, node.startedAt, 0.4),
       claim: ramp(t, node.verifiedAt, 0.4),
@@ -441,9 +442,9 @@ export function nodeViews(sim: Simulation) {
         {
           key: `${parentId}-${node.id}`,
           x1: parent.x,
-          y1: parent.y - cameraY,
+          y1: parent.y,
           x2: node.x,
-          y2: node.y - cameraY,
+          y2: node.y,
           visible: ramp(t, node.createdAt, 0.6),
           /** Solid once someone takes the question on; dashed while open. */
           started: node.startedAt !== undefined,
@@ -465,9 +466,9 @@ export function workerViews(sim: Simulation) {
       key: worker.id,
       kind: worker.kind,
       x: worker.x,
-      y: worker.y - sim.cameraY,
+      y: worker.y,
       hubX: node?.x ?? worker.x,
-      hubY: (node?.y ?? worker.y) - sim.cameraY,
+      hubY: node?.y ?? worker.y,
       /** The dotted "working on it" link. */
       link: worker.working ? ramp(sim.time, worker.arrivedAt, 0.3) : 0,
     };

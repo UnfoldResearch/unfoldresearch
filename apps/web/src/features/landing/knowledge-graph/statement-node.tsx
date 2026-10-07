@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { CheckMark } from "../glyphs";
 import { ArtifactNode, SpokeLine } from "./artifact-spoke";
 import { kindStyles } from "./kind-styles";
@@ -8,7 +10,25 @@ import { ease } from "./simulation";
  * A statement in the graph: an open question that becomes a hypothesis while
  * a team works on it, then a verified claim. Stages cross-fade.
  */
-export function StatementNode({ state }: { state: NodeState }) {
+export const StatementNode = memo(StatementNodeView, (prev, next) =>
+  sameNode(prev.state, next.state),
+);
+
+/** Views are rebuilt every frame; most nodes are settled and unchanged. */
+function sameNode(a: NodeState, b: NodeState) {
+  return (
+    a.x === b.x &&
+    a.y === b.y &&
+    a.visible === b.visible &&
+    a.hypothesis === b.hypothesis &&
+    a.claim === b.claim &&
+    a.pulse === b.pulse &&
+    a.spokes.length === b.spokes.length &&
+    a.spokes.every((spoke, i) => spoke.shown === b.spokes[i]?.shown)
+  );
+}
+
+function StatementNodeView({ state }: { state: NodeState }) {
   const { x, y, visible, hypothesis, claim, pulse, spokes } = state;
   if (visible === 0) return null;
   const testing = hypothesis * (1 - claim);
