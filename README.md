@@ -59,7 +59,9 @@ Styling has three layers, each in one place. Change the layer that matches the s
 - **CSS modules for anything non-trivial**: components, variants, states (`[data-checked]`,
   `[data-highlighted]` from Base UI), animations. Use `var(--ui-…)` tokens only, never raw
   colours. Wrap rules in `@layer components` so Tailwind utilities passed via `className`
-  still override them.
+  still override them, and start each module with `@import "../../styles/layers.css";`
+  (it fixes the layer order, which production builds otherwise get wrong when component
+  CSS loads before Tailwind's).
 - **Variants** are classes picked in TSX (`styles[variant]`, `styles[tone]`). Prefer tones that
   set private custom properties (`--_bg`, `--_fg`) which variants consume, so a new tone or
   variant is one rule rather than one per combination (see `button.module.css`).

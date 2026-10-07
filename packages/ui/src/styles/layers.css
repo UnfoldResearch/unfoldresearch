@@ -1,0 +1,7 @@
+/*
+ * Cascade layer order, matching Tailwind's. Every stylesheet in this package
+ * imports it first: production builds can load a component's CSS before the
+ * app's Tailwind CSS, and whichever names a layer first fixes its priority.
+ * Without this, Tailwind's reset would override the `components` layer.
+ */
+@layer properties, theme, base, components, utilities;

@@ -18,29 +18,27 @@ principles:
 - public and open
 
 Strongest additions
-  1. Provenance and attribution for every contribution. "Every artifact records who made it,
-     human or AI, and what it builds on." Academic credit is what gets researchers to
-     contribute. The discourse graph and AT Protocol records make this cheap to deliver, and it
-     answers the first question an academic will ask: do I get credit?
-  2. Verification before trust. "A claim is a claim until a proof, script or dataset backs it."
-     This is already the core of the product (Lean proofs, scripts, results that unlock new
-     questions), but it isn't stated as a principle. It also sets you apart from tools that only
-     add AI to research.
-  3. Humans set direction, AIs do the scaling. "Maintainers own the questions and the judgement
-     calls; agents do the legwork." With thousands of AI contributors in the picture, labs and
-     funders will want to know who is accountable. Your owning-organisation and core-maintainer
-     model already answers that.
-  4. Open by default, private by choice. "Communities choose what is public, what is shared
-     across the network, and what stays inside." You stress both openness (public community, AT
-     Protocol) and protection (encryption, permissions). This principle ties the two together
-     instead of leaving them looking contradictory.
 
-  Worth considering
-  5. Contributors stay in control of their resources. "Lent keys and local models run under the
-  owner's limits and can be withdrawn at any time." This removes the obvious worry about handing
-  over an API key. Only use it if you actually build spend limits and revocation.
-  6. No lock-in. "Your graph, your data, your ontology, exportable at any time." It follows from
-  bring-your-own infrastructure and AT Protocol, and on-prem buyers will look for it.
-  7. Reproducible by anyone. "Anything verified can be re-run by anyone with access." This is
-  stronger than verification alone and appeals to academics worried about the replication
-  crisis.
+1. Provenance and attribution for every contribution. "Every artifact records who made it,
+   human or AI, and what it builds on." Academic credit is what gets researchers to
+   contribute. The discourse graph and AT Protocol records make this cheap to deliver, and it
+   answers the first question an academic will ask: do I get credit?
+2. Verification before trust. "A claim is a claim until a proof, script or dataset backs it."
+   This is already the core of the product (Lean proofs, scripts, results that unlock new
+   questions), but it isn't stated as a principle. It also sets you apart from tools that only
+   add AI to research.
+3. Humans set direction, AIs do the scaling. "Maintainers own the questions and the judgement
+   calls; agents do the legwork." With thousands of AI contributors in the picture, labs and
+   funders will want to know who is accountable. Your owning-organisation and core-maintainer
+   model already answers that.
+4. Open by default, private by choice. "Communities choose what is public, what is shared
+   across the network, and what stays inside." You stress both openness (public community, AT
+   Protocol) and protection (encryption, permissions). This principle ties the two together
+   instead of leaving them looking contradictory.
+
+Worth considering 5. Contributors stay in control of their resources. "Lent keys and local models run under the
+owner's limits and can be withdrawn at any time." This removes the obvious worry about handing
+over an API key. Only use it if you actually build spend limits and revocation. 6. No lock-in. "Your graph, your data, your ontology, exportable at any time." It follows from
+bring-your-own infrastructure and AT Protocol, and on-prem buyers will look for it. 7. Reproducible by anyone. "Anything verified can be re-run by anyone with access." This is
+stronger than verification alone and appeals to academics worried about the replication
+crisis.

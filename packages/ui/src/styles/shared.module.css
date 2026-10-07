@@ -2,6 +2,8 @@
  * Behaviour shared across components, pulled in with `composes`.
  * Tweak here to restyle focus or popup motion everywhere at once.
  */
+
+@import "./layers.css";
 @layer components {
   .focusRing {
     outline: none;
