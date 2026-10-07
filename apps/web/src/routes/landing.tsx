@@ -18,6 +18,7 @@ import { CommunityRings } from "../features/landing/community-rings";
 import { ComputePool } from "../features/landing/compute-pool";
 import { KnowledgeGraph } from "../features/landing/knowledge-graph/knowledge-graph";
 import { ResearchLoop } from "../features/landing/research-loop";
+import { Reveal } from "../features/landing/reveal";
 
 const sections = [
   { href: "#how-it-works", label: "How it works" },
@@ -102,7 +103,7 @@ function Section({
       )}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex max-w-2xl flex-col gap-3">
+        <Reveal className="flex max-w-2xl flex-col gap-3">
           <p className="text-sm font-semibold tracking-wide text-accent uppercase">
             {eyebrow}
           </p>
@@ -110,8 +111,10 @@ function Section({
             {title}
           </h2>
           <p className="text-lg text-pretty text-fg-muted">{lede}</p>
-        </div>
-        <div className="mt-12">{children}</div>
+        </Reveal>
+        <Reveal delay={150} className="mt-12">
+          {children}
+        </Reveal>
       </div>
     </section>
   );
@@ -120,7 +123,7 @@ function Section({
 function Hero() {
   return (
     <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:pt-24">
-      <div className="flex flex-col gap-6">
+      <Reveal className="flex flex-col gap-6">
         <Badge tone="accent" className="self-start">
           Democratized research for humans and AI
         </Badge>
@@ -151,9 +154,11 @@ function Hero() {
         <p className="text-sm text-fg-subtle">
           Managed in our cloud, or deployed on your own infrastructure.
         </p>
-      </div>
+      </Reveal>
 
-      <KnowledgeGraph className="mx-auto h-auto w-full max-w-xl" />
+      <Reveal delay={200}>
+        <KnowledgeGraph className="mx-auto h-auto w-full max-w-xl" />
+      </Reveal>
     </section>
   );
 }
@@ -181,11 +186,11 @@ function Pillars() {
     <section className="border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         {pillars.map((p, i) => (
-          <div key={p.title} className="flex flex-col gap-2">
+          <Reveal key={p.title} delay={i * 100} className="flex flex-col gap-2">
             <span className="font-mono text-sm text-fg-subtle">0{i + 1}</span>
             <h3 className="font-display text-lg font-semibold">{p.title}</h3>
             <p className="text-pretty text-fg-muted">{p.body}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
@@ -569,7 +574,7 @@ function Deploy() {
 function ClosingCta() {
   return (
     <section className="border-t border-border">
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-20 text-center sm:px-6 sm:py-24">
+      <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-20 text-center sm:px-6 sm:py-24">
         <h2 className="font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
           Give your hardest question a community.
         </h2>
@@ -592,7 +597,7 @@ function ClosingCta() {
             Join as a contributor
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
